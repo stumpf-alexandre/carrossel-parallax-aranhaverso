@@ -36,7 +36,16 @@ No terminal digite 'npx create-next-app@latest'
     - npm install
 
 # Comando para rodar o site localmente
-    -npm run dev
+    - npm run dev
+
+# Comando para configurações para facilitar o desenvolvimento do projeto na identação e quebrade linha
+    - npm i eslint-config-prettier --save-dev
+
+# Comando para configurações para facilitar a organização das importações do projeto
+    - npm i eslint-plugin-import --save-dev
+
+# Comando para configurações para facilitar a retirada das importações que não estejam sendo usado no programa
+    - npm i eslint-plugin-unused-imports --save-dev
 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
