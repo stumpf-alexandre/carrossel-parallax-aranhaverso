@@ -46,6 +46,9 @@ No terminal digite 'npx create-next-app@latest'
 
 # Comando para configurações para facilitar a retirada das importações que não estejam sendo usado no programa
     - npm i eslint-plugin-unused-imports --save-dev
+  
+# Comando para instalar o sass para estilização
+    - npm install --save-dev sass
 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).

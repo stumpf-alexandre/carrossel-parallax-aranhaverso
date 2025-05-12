@@ -23,6 +23,7 @@
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "sass": "^1.88.0",
     "typescript": "^5"
   }
 }
