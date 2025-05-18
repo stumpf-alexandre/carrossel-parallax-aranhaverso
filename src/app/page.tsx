@@ -1,4 +1,4 @@
-import HeroesList from "@/components";
+import HeroesList from "@/components/HeroesList";
 import { IHeroData } from "@/interface/heroes";
 import styles from "./page.module.scss";
 
