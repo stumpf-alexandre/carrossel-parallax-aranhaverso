@@ -49,6 +49,15 @@ No terminal digite 'npx create-next-app@latest'
   
 # Comando para instalar o sass para estilização
     - npm install --save-dev sass
+  
+# Instalando a biblioteca Framer Motion
+    - Fácil de usar
+    - Controle total
+    - Suporte a diversos componentes
+    - Gerenciamento de estado
+    - Performance otimizado
+    - Ecossistema ativo
+    - npm install framer-motion
 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
