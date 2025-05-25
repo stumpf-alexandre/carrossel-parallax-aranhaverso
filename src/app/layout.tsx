@@ -1,6 +1,7 @@
 import "./globals.scss";
 import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Spiderverse",
@@ -23,7 +24,9 @@ export default function RootLayout({
             width={36}
             height={25}
           />
-          <Image src="/spider-logo.svg" alt="Spiderman" width={260} height={70} />
+          <Link href={"/"}>
+            <Image src="/spider-logo.svg" alt="logo Spiderman" width={260} height={70} />
+          </Link>
           <Image
             src="icons/user.svg"
             alt="Login"

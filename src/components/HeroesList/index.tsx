@@ -5,6 +5,7 @@ import { IHeroData } from "@/interface/heroes";
 import styles from "./heroesList.module.scss";
 import HeroPicture from "../HeroPicture";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface IProps {
     heroes: IHeroData[];
@@ -17,7 +18,9 @@ export default function HeroesList({ heroes }: IProps) {
             <motion.section className={styles.heroes} initial={{opacity: 0, y: -100}} animate={{opacity: 1, y: 0}} transition={{duration: 2}}>
                 {heroes.map(hero => (
                     <motion.div key={hero.id} className={`${styles.imageContainer} ${styles[hero.id]}`} whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.8 }} transition={{ duration: 0.8 }}>
-                        <HeroPicture hero = {hero} />
+                        <Link href={`/hero/${hero.id}`}>
+                            <HeroPicture hero = {hero} />
+                        </Link>
                     </motion.div>
                 ))}
             </motion.section>
