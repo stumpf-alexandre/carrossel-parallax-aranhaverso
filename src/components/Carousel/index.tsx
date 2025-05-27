@@ -75,9 +75,14 @@ export default function Carousel({ heroes, activeId }: IProps) {
                     </AnimatePresence>
                 </div>
             </div>
-            <div className={styles.details}>
+            <motion.div
+                className={styles.details}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 2 }}
+            >
                 <HeroDetails data={heroes[0]} />
-            </div>
+            </motion.div>
         </div>
     );
 }
