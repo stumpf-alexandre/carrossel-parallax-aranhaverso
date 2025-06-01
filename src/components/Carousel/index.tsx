@@ -88,14 +88,30 @@ export default function Carousel({ heroes, activeId }: IProps) {
             return null;
         }
 
-        const endInteractionPosition = e.clientX;
+        handleChangeDragTouch(e.clientX);
+    };
+
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+        setStartInteractionPosition(e.touches[0].clientX);
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+        if (!startInteractionPosition) {
+            return null;
+        }
+
+        handleChangeDragTouch(e.changedTouches[0].clientX);
+    };
+
+    const handleChangeDragTouch = (clientX: number) => {
+        const endInteractionPosition = clientX;
         const diffPosition = endInteractionPosition - startInteractionPosition;
 
         //diffPosition > 0 => direita para esquerda
         //diffPosition < 0 => esquerda para direita
         const newPosition = diffPosition > 0 ? -1 : 1;
         handleChangeActiveIndex(newPosition);
-    };
+    }
 
     //Altera heróis ativos no carrossel
     //+1 rotaciona no sentido horário
@@ -111,7 +127,7 @@ export default function Carousel({ heroes, activeId }: IProps) {
     return (
         <div className={styles.container}>
             <div className={styles.carousel}>
-                <div className={styles.wrapper} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+                <div className={styles.wrapper} onDragStart={handleDragStart} onDragEnd={handleDragEnd} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
                     <AnimatePresence mode="popLayout">
                         {visibleItems.map((item, position) => (
                             <motion.div
