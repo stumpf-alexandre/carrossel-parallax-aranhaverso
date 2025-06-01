@@ -25,7 +25,13 @@ export default function RootLayout({
             height={25}
           />
           <Link href={"/"}>
-            <Image src="/spider-logo.svg" alt="logo Spiderman" width={260} height={70} />
+            <Image
+              src="/spider-logo.svg"
+              alt="logo Spiderman"
+              width={260}
+              height={70}
+       
+            />
           </Link>
           <Image
             src="icons/user.svg"
