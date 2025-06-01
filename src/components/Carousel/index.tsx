@@ -20,9 +20,12 @@ interface IProps {
 
 export default function Carousel({ heroes, activeId }: IProps) {
     const [visibleItems, setVisibleItems] = useState<IHeroData[] | null>(null);
+
     const [activeIndex, setActiveIndex] = useState<number>(
         heroes.findIndex((hero) => hero.id === activeId) - 1
     );
+
+    const [startInteractionPosition, setStartInteractionPosition] = useState<number>(0);
 
     const transitionAudio = useMemo(() => new Audio("/songs/transition.mp3"), []);
 
@@ -76,6 +79,27 @@ export default function Carousel({ heroes, activeId }: IProps) {
         
     }, [visibleItems, transitionAudio, voicesAudio]);
 
+    const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+        setStartInteractionPosition(e.clientX);
+    };
+
+    const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+        if (!startInteractionPosition) {
+            return null;
+        }
+
+        const endInteractionPosition = e.clientX;
+        const diffPosition = endInteractionPosition - startInteractionPosition;
+
+        //diffPosition > 0 => direita para esquerda
+        //diffPosition < 0 => esquerda para direita
+        const newPosition = diffPosition > 0 ? -1 : 1;
+        handleChangeActiveIndex(newPosition);
+    };
+
+    //Altera heróis ativos no carrossel
+    //+1 rotaciona no sentido horário
+    //-1 rotaciona no sentido anti-horário
     const handleChangeActiveIndex = (newDirection: number) => {
         setActiveIndex((prevActiveIndex) => prevActiveIndex + newDirection);
     }
@@ -87,7 +111,7 @@ export default function Carousel({ heroes, activeId }: IProps) {
     return (
         <div className={styles.container}>
             <div className={styles.carousel}>
-                <div className={styles.wrapper} onClick={() => handleChangeActiveIndex(1)}>
+                <div className={styles.wrapper} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
                     <AnimatePresence mode="popLayout">
                         {visibleItems.map((item, position) => (
                             <motion.div
