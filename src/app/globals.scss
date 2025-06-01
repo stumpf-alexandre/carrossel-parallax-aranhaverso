@@ -32,3 +32,41 @@ header {
     position: relative;
     z-index: 4;
 }
+@media screen and (min-width:320px) {
+    header {
+        margin: 1rem 1rem 0;
+    }
+    .menu {
+        width: 20px;
+        height: 20px;
+    }
+
+    .logo {
+        width: 150px;
+        height: 35px;
+        padding: 0 40px;
+    }
+
+    .user {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .menu {
+        width: 30px;
+        height: 30px;
+    }
+
+    .logo {
+        width: 500px;
+        height: 50px;
+        padding: 0 60px;
+    }
+
+    .user {
+        width: 30px;
+        height: 30px;
+    }
+}

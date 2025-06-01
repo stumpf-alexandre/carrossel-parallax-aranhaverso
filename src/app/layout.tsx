@@ -23,6 +23,7 @@ export default function RootLayout({
             alt="Opções de menu"
             width={36}
             height={25}
+            className="menu"
           />
           <Link href={"/"}>
             <Image
@@ -30,7 +31,7 @@ export default function RootLayout({
               alt="logo Spiderman"
               width={260}
               height={70}
-       
+              className="logo"
             />
           </Link>
           <Image
@@ -38,6 +39,7 @@ export default function RootLayout({
             alt="Login"
             width={36}
             height={36}
+            className="user"
           />
         </header>
         {children}
